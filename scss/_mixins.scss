@@ -1,0 +1,20 @@
+@use 'variables' as *;
+
+@use "sass:map";
+
+@mixin respond($type, $size) {
+  $value: map.get($breakpoints, $size);
+
+  @if $value == null {
+    @warn "No breakpoint named `#{$size}` found!";
+  } @else if $type == max {
+    @media (max-width: $value) {
+      @content;
+    }
+  } @else if $type == min {
+    @media (min-width: $value) {
+      @content;
+    }
+  }
+}
+

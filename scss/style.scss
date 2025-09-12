@@ -1,4 +1,6 @@
 @use 'variables' as v;
+@use 'mixins' as *;
+@use "./animation" as *;
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;900&display=swap');
 
@@ -54,7 +56,8 @@ body {
     }
   }
 
-  @media (max-width:767px) {
+  @include respond(max, sm) {
+
     .collapsible-menu-ui {
       .mobile-dropdown {
         background-color: #00000075;
@@ -114,8 +117,6 @@ body {
     }
   }
 
-
-
   .logo {
     width: 48px;
     height: 48px;
@@ -136,12 +137,11 @@ body {
   height: 50px;
 }
 
-/* Hero */
 .hero {
   padding: 1rem 0;
   position: relative;
 
-  @media (max-width:767px) {
+  @include respond(max, sm) {
     padding: 0;
   }
 
@@ -165,11 +165,18 @@ body {
     transform: translateX(-100%);
     animation: slideIn 1s ease forwards 0.3s;
 
-    @media (max-width: 576px) {
+    @include respond(max, xs) {
       font-size: 28px;
     }
 
-    @media (max-width: 991px) {
+    @include respond(max, xxs) {
+      .gradient-text {
+        margin-top: 10px;
+        display: block;
+      }
+    }
+
+    @include respond(max, md) {
       font-size: 36px;
     }
 
@@ -177,7 +184,7 @@ body {
       font-size: 90px;
       margin: 10px 0;
 
-      @media (max-width: 767px) {
+      @include respond(max, sm) {
         font-size: 60px;
         margin: 0;
       }
@@ -187,7 +194,7 @@ body {
         margin: 0 -10px;
         vertical-align: text-top;
 
-        @media (max-width: 767px) {
+        @include respond(max, sm) {
           font-size: 75px;
         }
       }
@@ -197,24 +204,17 @@ body {
   }
 }
 
-/* hero heading animation */
-@keyframes slideIn {
-  to {
-    transform: translateX(0);
-  }
-}
-
 .hero-cards {
   position: relative;
   width: 100%;
   height: 500px;
 
-  @media (max-width: 991px) {
+  @include respond(max, md) {
     height: 400px;
 
   }
 
-  @media (max-width:767px) {
+  @include respond(max, sm) {
     height: auto;
     display: flex;
     flex-wrap: wrap;
@@ -237,7 +237,7 @@ body {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
     animation: floatUp 6s ease-in-out infinite;
 
-    @media (max-width: 767px) {
+    @include respond(max, sm) {
       position: unset;
       min-width: 160px;
       // width: 48%;
@@ -264,9 +264,10 @@ body {
   p {
     font-size: 13px;
     margin: 0;
-      @media (max-width: 767px) {
+
+    @include respond(max, sm) {
       font-size: 10px;
-      }
+    }
   }
 
   .running-days {
@@ -278,7 +279,7 @@ body {
     top: 45%;
     left: 20%;
 
-    @media (max-width:767px) {
+    @include respond(max, sm) {
       top: 48%;
       left: 7%;
     }
@@ -296,7 +297,7 @@ body {
       top: 48%;
     }
 
-    @media (max-width:767px) {
+    @include respond(max, sm) {
       top: 48%;
       right: 8%;
     }
@@ -316,7 +317,7 @@ body {
       left: 12%;
     }
 
-    @media (max-width:767px) {
+    @include respond(max, sm) {
       bottom: 7%;
       left: 10%;
     }
@@ -331,26 +332,12 @@ body {
       right: 12%;
     }
 
-    @media (max-width:767px) {
+    @include respond(max, sm) {
       bottom: 7%;
       right: 12%;
     }
   }
 }
-
-/* Floating animation (slow rise + fade) */
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) scale(1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: translateY(-300px) scale(1.07);
-    opacity: 0;
-  }
-}
-
 
 /* Features */
 .features {
@@ -361,7 +348,8 @@ body {
     padding: 30px 20px;
     transition: transform 0.4s ease;
     cursor: pointer;
-    @media (max-width:991px) {
+
+    @include respond(max, md) {
       padding: 30px 0px;
     }
 
@@ -404,7 +392,8 @@ body {
       margin-bottom: 0;
       font-weight: 600;
       transition: all 0.4s ease;
-      @media (max-width: 991px) {
+
+      @include respond(max, md) {
         font-size: 14px;
       }
     }
@@ -435,7 +424,6 @@ body {
   }
 }
 
-
 .plans {
   overflow: hidden;
 
@@ -456,7 +444,7 @@ body {
     z-index: -1;
     position: relative;
 
-    @media (max-width:767px) {
+    @include respond(max, sm) {
       width: 100%;
       height: 256px;
     }
@@ -482,7 +470,7 @@ body {
         top: -6px;
       }
 
-      @media (max-width:991px) {
+      @include respond(max, md) {
         display: none;
       }
 
@@ -527,7 +515,7 @@ body {
       }
 
       // Responsive
-      @media (max-width: 576px) {
+      @include respond(max, xs) {
         max-width: 100%;
         padding: 1.5rem 1rem;
 
@@ -566,12 +554,13 @@ body {
     top: 0;
     animation: slowRotate 30s linear infinite;
 
-    @media (max-width:475px) {
+    @include respond(max, xxs) {
       width: 500px;
       height: 500px;
       left: -13%;
       top: 2%;
     }
+
     @media (min-width:476px) and (max-width:767px) {
       width: 600px;
       height: 600px;
@@ -587,12 +576,13 @@ body {
     top: 80px;
     animation: slowRotateReverse 22s linear infinite;
 
-    @media (max-width:475px) {
+    @include respond(max, xxs) {
       width: 450px;
       height: 450px;
       left: -6%;
       top: 26%;
     }
+
     @media (min-width:476px) and (max-width:767px) {
       width: 500px;
       height: 500px;
@@ -608,12 +598,13 @@ body {
     top: 155px;
     animation: slowRotate 17s linear infinite;
 
-    @media (max-width:475px) {
+    @include respond(max, xxs) {
       width: 370px;
       height: 370px;
       left: 4%;
       top: 47%;
     }
+
     @media (min-width:476px) and (max-width:767px) {
       width: 400px;
       height: 400px;
@@ -630,12 +621,13 @@ body {
     border: 0;
     top: 208px;
 
-    @media (max-width:475px) {
+    @include respond(max, xxs) {
       width: 300px;
       height: 300px;
       left: 13%;
       top: 62%;
     }
+
     @media (min-width:476px) and (max-width:767px) {
       width: 300px;
       height: 300px;
@@ -652,7 +644,7 @@ body {
       font-size: 70px;
       line-height: 70px;
 
-      @media (max-width:767px) {
+      @include respond(max, sm) {
         font-size: 38px;
         line-height: 34px;
       }
@@ -718,57 +710,6 @@ body {
   }
 }
 
-/* Orbit keyframes (circular motion) */
-@keyframes orbit1 {
-  0% {
-    transform: rotate(0deg) translate(-120px, -20px) rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg) translate(-120px, -20px) rotate(-360deg);
-  }
-}
-
-@keyframes orbit2 {
-  0% {
-    transform: rotate(0deg) translate(10px, -140px) rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(-360deg) translate(10px, -140px) rotate(360deg);
-  }
-}
-
-@keyframes orbit3 {
-  0% {
-    transform: rotate(0deg) translate(120px, 40px) rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg) translate(120px, 40px) rotate(-360deg);
-  }
-}
-
-@keyframes orbit4 {
-  0% {
-    transform: rotate(0deg) translate(140px, 140px) rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg) translate(140px, 140px) rotate(-360deg);
-  }
-}
-
-@keyframes orbit5 {
-  0% {
-    transform: rotate(0deg) translate(200px, -20px) rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg) translate(200px, -20px) rotate(-360deg);
-  }
-}
-
 // about section
 .about {
   .about-bg {
@@ -791,7 +732,7 @@ body {
       background: linear-gradient(to bottom, #274f78, #2569ce)
     }
 
-    @media (max-width:767px) {
+    @include respond(max, sm) {
       text-align: center;
 
       .custom-title-section {
@@ -800,7 +741,7 @@ body {
     }
   }
 
-  @media (max-width:767px) {
+  @include respond(max, sm) {
     .col-reverse-sm {
       flex-direction: column-reverse;
     }
@@ -834,34 +775,12 @@ body {
   .big-title {
     font-size: 60px;
     text-shadow: 2px 3px 5px rgba(255, 192, 203, 0.7);
-          @media (max-width: 767px) {
-        font-size: 50px;
-      }
+
+    @include respond(max, sm) {
+      font-size: 50px;
+    }
   }
 
-
-}
-
-
-
-@keyframes slowRotate {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes slowRotateReverse {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(-360deg);
-  }
 }
 
 /* Floating decorative elements */
@@ -870,74 +789,57 @@ body {
   inset: auto 0 0 0;
   pointer-events: none;
   z-index: 5;
-}
 
-.metal-ball {
-  position: absolute;
-  width: 36px;
-  height: 36px;
-  background: url(../images/metalball.png) center / cover no-repeat;
-  animation: rise 12s linear infinite;
-}
-
-.b1 {
-  left: 8%;
-  bottom: -40px;
-  animation-delay: 0s;
-}
-
-.b2 {
-  left: 72%;
-  bottom: -60px;
-  animation-delay: 3s;
-}
-
-.b3 {
-  left: 78%;
-  bottom: -60px;
-  animation-delay: 3s;
-  width: 120px;
-  height: 120px;
-}
-
-.hexagon {
-  width: 100px;
-  height: 80px;
-  background: url(../images/hexagon.png) center / cover no-repeat;
-  position: absolute;
-  opacity: 0.85;
-  animation: rise 14s linear infinite;
-}
-
-.h1 {
-  left: 40%;
-  bottom: -20px;
-  animation-delay: 1.2s;
-}
-
-.h2 {
-  left: 88%;
-  bottom: -30px;
-  animation-delay: 4s;
-}
-
-@keyframes rise {
-  0% {
-    transform: translateY(0) rotate(0deg);
-    opacity: .9;
+  .metal-ball {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: url(../images/metalball.png) center / cover no-repeat;
+    animation: rise 12s linear infinite;
   }
 
-  50% {
-    opacity: .8;
+  .b1 {
+    left: 8%;
+    bottom: -40px;
+    animation-delay: 0s;
   }
 
-  100% {
-    transform: translateY(-120vh) rotate(360deg);
-    opacity: 0;
+  .b2 {
+    left: 72%;
+    bottom: -60px;
+    animation-delay: 3s;
+  }
+
+  .b3 {
+    left: 78%;
+    bottom: -60px;
+    animation-delay: 3s;
+    width: 120px;
+    height: 120px;
+  }
+
+  .hexagon {
+    width: 100px;
+    height: 80px;
+    background: url(../images/hexagon.png) center / cover no-repeat;
+    position: absolute;
+    opacity: 0.85;
+    animation: rise 14s linear infinite;
+  }
+
+  .h1 {
+    left: 40%;
+    bottom: -20px;
+    animation-delay: 1.2s;
+  }
+
+  .h2 {
+    left: 88%;
+    bottom: -30px;
+    animation-delay: 4s;
   }
 }
 
-/* Footer etc */
 footer {
   background: rgba(0, 0, 0, 0.6);
 }

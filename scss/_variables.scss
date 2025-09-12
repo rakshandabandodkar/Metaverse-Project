@@ -6,3 +6,11 @@ $accent: #d8af73;
 $primary-bg: #4b0082b3; 
 $gradient: linear-gradient(271deg, #c82a7a, #cf9760);
 $label-gradient: linear-gradient(to right, #c82a7a, #cf9760);
+
+$breakpoints: (
+  "xxs": 475px,
+  "xs": 576px,
+  "sm": 767px,
+  "md": 991px,
+  "lg": 1024px
+);
