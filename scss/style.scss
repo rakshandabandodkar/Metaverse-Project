@@ -39,6 +39,49 @@ body {
   position: relative;
   z-index: 30;
 
+  @media (min-width:768px) and (max-width:991px) {
+    >.container {
+      .logo-and-buttons {
+        width: 100%;
+
+        .button-container {
+          width: 100%;
+          display: flex !important;
+          justify-content: end;
+          gap: 10px;
+        }
+      }
+    }
+  }
+
+  @media (max-width:767px) {
+    .collapsible-menu-ui {
+      .mobile-dropdown {
+        background-color: #00000075;
+        padding: 18px 6px;
+
+        .button-container {
+          margin: 16px 0 0 0;
+          display: flex;
+          gap: 10px;
+
+          button {
+            width: 100%;
+          }
+        }
+      }
+    }
+
+  }
+
+  .contact {
+    font-size: 13px;
+
+    @media (max-width: 1024px) {
+      font-size: 12px;
+    }
+  }
+
   .button-container {
     margin-left: 30px;
 
@@ -98,6 +141,10 @@ body {
   padding: 1rem 0;
   position: relative;
 
+  @media (max-width:767px) {
+    padding: 0;
+  }
+
   .hero-bg {
     background: url(../images/hero-banner.png) center / cover no-repeat;
     background-size: cover;
@@ -118,14 +165,30 @@ body {
     transform: translateX(-100%);
     animation: slideIn 1s ease forwards 0.3s;
 
+    @media (max-width: 576px) {
+      font-size: 28px;
+    }
+
+    @media (max-width: 991px) {
+      font-size: 36px;
+    }
+
     .custom-big-font {
       font-size: 90px;
       margin: 10px 0;
+
+      @media (max-width: 767px) {
+        font-size: 60px;
+      }
 
       i {
         font-size: 113px;
         margin: 0 -10px;
         vertical-align: text-top;
+
+        @media (max-width: 767px) {
+          font-size: 75px;
+        }
       }
     }
 
@@ -143,14 +206,28 @@ body {
 .hero-cards {
   position: relative;
   width: 100%;
-  height: 500px; // adjust to fit your hero image
+  height: 500px;
+
+  @media (max-width: 991px) {
+    height: 400px;
+
+  }
+
+  @media (max-width:767px) {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 30px 0;
+  }
 
   .stat-card {
     position: absolute;
-    min-width: 160px;
+    min-width: 190px;
     padding: 12px 16px;
     background: linear-gradient(88deg, #e42299, #3f1ad8);
-    border-radius: 12px;
+    border-radius: 8px;
     color: #fff;
     display: flex;
     align-items: center;
@@ -158,6 +235,15 @@ body {
     font-size: 14px;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
     animation: floatUp 6s ease-in-out infinite;
+
+    @media (max-width: 767px) {
+      position: unset;
+      //min-width: unset;
+      // width: 48%;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
     i {
       background: #ec2385;
@@ -181,7 +267,6 @@ body {
     margin: 0;
   }
 
-  /* Position each card around the hero (like your screenshot) */
   .running-days {
     top: 20%;
     left: 12%;
@@ -190,11 +275,29 @@ body {
   .total-investments {
     top: 45%;
     left: 20%;
+
+    @media (max-width:767px) {
+      top: 48%;
+      left: 7%;
+    }
+
+    @media (min-width:768px) and (max-width:991px) {
+      top: 48%;
+    }
   }
 
   .total-withdrawals {
     top: 45%;
     right: 20%;
+
+    @media (min-width:768px) and (max-width:991px) {
+      top: 48%;
+    }
+
+    @media (max-width:767px) {
+      top: 48%;
+      right: 8%;
+    }
   }
 
   .online-visitors {
@@ -205,11 +308,31 @@ body {
   .project-started {
     bottom: 15%;
     left: 28%;
+
+    @media (min-width:768px) and (max-width:991px) {
+      bottom: 7%;
+      left: 12%;
+    }
+
+    @media (max-width:767px) {
+      bottom: 7%;
+      left: 10%;
+    }
   }
 
   .visitors-online {
     bottom: 15%;
     right: 28%;
+
+    @media (min-width:768px) and (max-width:991px) {
+      bottom: 7%;
+      right: 12%;
+    }
+
+    @media (max-width:767px) {
+      bottom: 7%;
+      right: 12%;
+    }
   }
 }
 
@@ -305,8 +428,9 @@ body {
 }
 
 
-/* Plans and ripples */
 .plans {
+  overflow: hidden;
+
   .plans-bg {
     background: url(../images/planbanner.jpg) center / cover no-repeat;
     background-size: cover;
@@ -324,6 +448,10 @@ body {
     z-index: -1;
     position: relative;
 
+    @media (max-width:767px) {
+      width: 100%;
+      height: 256px;
+    }
 
     // Card styles
     .pricing-card {
@@ -340,6 +468,15 @@ body {
       background-image: linear-gradient(v.$primary-bg, v.$primary-bg), v.$gradient;
       background-origin: border-box;
       background-clip: padding-box, border-box;
+
+      @media (min-width:992px) and (max-width:1024px) {
+        left: -23%;
+        top: -6px;
+      }
+
+      @media (max-width:991px) {
+        display: none;
+      }
 
       // Label
       .pricing-label {
@@ -369,15 +506,6 @@ body {
       // Content
       .pricing-content {
         text-align: center;
-
-        h2 {
-          font-size: 2rem;
-        }
-
-        h3 {
-          font-size: 1.1rem;
-          margin-top: 10px;
-        }
 
         p {
           margin: 0;
@@ -426,34 +554,86 @@ body {
   .r1 {
     width: 700px;
     height: 700px;
-    left: 0;
+    left: -25px;
     top: 0;
     animation: slowRotate 30s linear infinite;
+
+    @media (max-width:425px) {
+      width: 500px;
+      height: 500px;
+      left: -13%;
+      top: 2%;
+    }
+    @media (min-width:426px) and (max-width:767px) {
+      width: 600px;
+      height: 600px;
+      left: -8%;
+      top: 2%;
+    }
   }
 
   .r2 {
     width: 550px;
     height: 550px;
-    left: 80px;
+    left: 55px;
     top: 80px;
     animation: slowRotateReverse 22s linear infinite;
+
+    @media (max-width:425px) {
+      width: 450px;
+      height: 450px;
+      left: -6%;
+      top: 26%;
+    }
+    @media (min-width:426px) and (max-width:767px) {
+      width: 500px;
+      height: 500px;
+      left: 2%;
+      top: 20%;
+    }
   }
 
   .r3 {
     width: 400px;
     height: 400px;
-    left: 149px;
+    left: 124px;
     top: 155px;
     animation: slowRotate 17s linear infinite;
+
+    @media (max-width:425px) {
+      width: 370px;
+      height: 370px;
+      left: 4%;
+      top: 47%;
+    }
+    @media (min-width:426px) and (max-width:767px) {
+      width: 400px;
+      height: 400px;
+      left: 13%;
+      top: 40%;
+    }
   }
 
   .r4 {
     background: #3c37676b;
     width: 300px;
     height: 300px;
-    left: 200px;
+    left: 175px;
     border: 0;
     top: 208px;
+
+    @media (max-width:425px) {
+      width: 300px;
+      height: 300px;
+      left: 13%;
+      top: 62%;
+    }
+    @media (min-width:426px) and (max-width:767px) {
+      width: 300px;
+      height: 300px;
+      left: 22%;
+      top: 55%;
+    }
   }
 
   .core-text {
@@ -463,13 +643,18 @@ body {
     .font-70 {
       font-size: 70px;
       line-height: 70px;
+
+      @media (max-width:767px) {
+        font-size: 38px;
+        line-height: 34px;
+      }
     }
   }
 
   .plan-card {
     position: absolute;
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     transform-origin: 210px 210px;
     top: 67%;
     left: 56%;
@@ -483,6 +668,19 @@ body {
     .card-body {
       padding: 5px;
       color: #fff;
+      font-size: 14px;
+      position: relative;
+      font-weight: 300;
+
+      .card-tag {
+        position: absolute;
+        top: -10px;
+        top: -30px;
+        white-space: nowrap;
+        background: v.$label-gradient;
+        padding: 2px 10px;
+        border-radius: 20px;
+      }
     }
   }
 
@@ -583,6 +781,20 @@ body {
   .about-details {
     button {
       background: linear-gradient(to bottom, #274f78, #2569ce)
+    }
+
+    @media (max-width:767px) {
+      text-align: center;
+
+      .custom-title-section {
+        justify-content: center;
+      }
+    }
+  }
+
+  @media (max-width:767px) {
+    .col-reverse-sm {
+      flex-direction: column-reverse;
     }
   }
 }
@@ -717,31 +929,4 @@ body {
 /* Footer etc */
 footer {
   background: rgba(0, 0, 0, 0.6);
-}
-
-/* Responsive tweaks */
-@media (max-width: 991px) {
-  .hero {
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-  }
-
-  .hero-cards {
-    height: 300px;
-  }
-
-  .hero-heading {
-    font-size: 36px;
-  }
-}
-
-@media (max-width: 576px) {
-  .hero-heading {
-    font-size: 28px;
-  }
-
-  .plans-wrap {
-    width: 300px;
-    height: 300px;
-  }
 }

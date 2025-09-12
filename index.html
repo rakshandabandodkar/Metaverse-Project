@@ -34,13 +34,15 @@
         <!-- Header -->
         <header class="site-header py-3">
             <div class="container d-flex align-items-center justify-content-between">
-                <div class="d-flex align-items-center">
-                    <div class="logo-img">
-                        <img src="images/logo.png" alt="logo" class="logo me-3" />
+                <div class="d-flex align-items-center logo-and-buttons">
+                    <div class="d-flex align-items-center">
+                        <div class="logo-img">
+                            <img src="images/logo.png" alt="logo" class="logo me-3" />
 
-                    </div>
-                    <div>
-                        <h5 class="mb-0 fw-bold">metaverse</h5>
+                        </div>
+                        <div>
+                            <h5 class="mb-0 fw-bold">metaverse</h5>
+                        </div>
                     </div>
                     <div class="button-container d-none d-md-block">
                         <button class="button login-button">Login</button>
@@ -49,7 +51,7 @@
                 </div>
 
                 <nav class="d-flex align-items-center gap-3">
-                    <div class="contact d-none d-lg-flex text-end me-3 font-14">
+                    <div class="contact d-none d-lg-flex text-end me-3">
                         <span><i class="fa-solid fa-phone font-18 me-1"></i> CALL NOW : <span class="text-accent">+91
                                 98765
                                 43210</span></span>
@@ -66,15 +68,21 @@
             </div>
 
             <!-- Mobile collapse nav -->
-            <div class="collapse" id="mobileNav">
-                <div class="bg-dark py-2">
-                    <div class="container">
-                        <div class="d-flex justify-content-between align-items-center text-white">
-                            <div>+91 98765 43210<br />hello@example.com</div>
-                            <div class="button-container">
-                                <button class="button login-button">Login</button>
-                                <button class="button registration-button">Registration</button>
+            <div class="collapse collapsible-menu-ui" id="mobileNav">
+                <div class="mobile-dropdown">
+                    <div class="container text-white">
+                        <div class="contact">
+                            <div><i class="fa-solid fa-phone font-18 me-1"></i> 
+                                CALL NOW : <span class="text-accent">+919876543210</span>
                             </div>
+                            <div class="mt-1">
+                                <i class="fa-solid fa-envelope font-18 me-1"></i>
+                                 TELEGRAM : <span class="text-accent">metaverse@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="button-container">
+                            <button class="button login-button">Login</button>
+                            <button class="button registration-button">Registration</button>
                         </div>
                     </div>
                 </div>
@@ -210,9 +218,9 @@
                 <div class="pricing-card mx-auto">
                     <span class="pricing-label">BASIC PLAN</span>
                     <div class="pricing-content">
-                        <h2 class="fw-bold">0.2%</h2>
+                        <h4 class="fw-bold">0.2%</h4>
                         <p class="mb-2">hourly for 96 hours</p>
-                        <h3 class="fw-bold">$10.00 – $500.00 USD</h3>
+                        <h6 class="fw-bold">$10.00 – $500.00 USD</h6>
                         <p class="small text-uppercase">Principal Included</p>
                     </div>
                 </div>
@@ -225,38 +233,44 @@
                 <!-- Plan cards placed on ripples / positioned absolute -->
                 <div class="plan-card p1 card">
                     <div class="card-body">
+                        <span class="card-tag">Min:$20.00</span>
                         <p class="mb-0">Upto</p>
-                        <h3 class="mb-0 fw-bold">0.2%</h3>
+                        <h5 class="mb-0 fw-bold">0.2%</h5>
                         <span>plan 1</span>
                     </div>
                 </div>
 
                 <div class="plan-card p2 card">
                     <div class="card-body">
+                        <span class="card-tag">Min:$200.00</span>
+
                         <p class="mb-0">Upto</p>
-                        <h3 class="mb-0 fw-bold">0.3%</h3>
+                        <h5 class="mb-0 fw-bold">0.3%</h5>
                         <span>plan 2</span>
                     </div>
                 </div>
 
                 <div class="plan-card p3 card">
                     <div class="card-body">
+                        <span class="card-tag">Min $30.0000</span>
+
                         <p class="mb-0">Upto</p>
-                        <h3 class="mb-0 fw-bold">0.4%</h3>
+                        <h5 class="mb-0 fw-bold">0.4%</h5>
                         <span>plan 3</span>
                     </div>
                 </div>
                 <div class="plan-card p4 card">
                     <div class="card-body">
                         <p class="mb-0">Upto</p>
-                        <h3 class="mb-0 fw-bold">4.4%</h3>
+                        <h5 class="mb-0 fw-bold">4.4%</h5>
                         <span>plan 4</span>
                     </div>
                 </div>
                 <div class="plan-card p5 card">
                     <div class="card-body">
+                        <span class="card-tag">Min:$440.00</span>
                         <p class="mb-0">Upto</p>
-                        <h3 class="mb-0 fw-bold">8.3%</h3>
+                        <h5 class="mb-0 fw-bold">8.3%</h5>
                         <span>plan 5</span>
                     </div>
                 </div>
@@ -271,9 +285,9 @@
             <div class="overlay position-absolute top-0 start-0 w-100 h-100"></div>
         </div>
         <div class="container">
-            <div class="row align-items-center">
-                <div class="col-md-5">
-                    <img src="images/about-illustration.png" alt="about" class="img-fluid rounded">
+            <div class="row align-items-center col-reverse-sm">
+                <div class="col-md-5 d-flex justify-content-center">
+                    <img src="images/about-illustration2.png" alt="about" class="img-fluid rounded">
                 </div>
                 <div class="col-md-7 mb-4 about-details">
                     <div class="custom-title-section">
