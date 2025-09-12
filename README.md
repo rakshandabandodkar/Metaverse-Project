@@ -2,7 +2,7 @@ Metaverse Project
 
 A responsive Metaverse landing page built with HTML, CSS (SCSS/Bootstrap), and JavaScript, showcasing a futuristic web experience.  
 
-**Live Demo** → [Metaverse Project](https://rakshandabandodkar.github.io/Metaverse-Project/)  
+**Live Demo link** → [Metaverse Project](https://rakshandabandodkar.github.io/Metaverse-Project/)  
 **Repository** → [GitHub Repo](https://github.com/rakshandabandodkar/Metaverse-Project)
 
 ---
