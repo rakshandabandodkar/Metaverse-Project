@@ -5,16 +5,19 @@
 @mixin respond($type, $size) {
   $value: map.get($breakpoints, $size);
 
-  @if $value == null {
+  @if $value ==null {
     @warn "No breakpoint named `#{$size}` found!";
-  } @else if $type == max {
+  }
+
+  @else if $type ==max {
     @media (max-width: $value) {
       @content;
     }
-  } @else if $type == min {
+  }
+
+  @else if $type ==min {
     @media (min-width: $value) {
       @content;
     }
   }
 }
-
